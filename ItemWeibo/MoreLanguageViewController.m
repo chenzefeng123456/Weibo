@@ -7,12 +7,15 @@
 //
 
 #import "MoreLanguageViewController.h"
-
+#import <MBProgressHUD.h>
 @interface MoreLanguageViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *myTb;
     NSArray *array;
+    NSInteger current;
+   
 }
+@property(nonatomic,strong) NSIndexPath *selectPath;
 @end
 
 @implementation MoreLanguageViewController
@@ -20,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    self.selectPath = [NSIndexPath indexPathForRow:[user integerForKey:@"select"] inSection:0];
+   
     
 }
 - (void)setUI{
@@ -32,20 +38,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0:
-        {
-           
-        }
-            break;
-            
-        default:
-            break;
+    if (self.selectPath) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:self.selectPath];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        
     }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.selectPath = indexPath;
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setInteger:self.selectPath.row forKey:@"select"];
+   
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    if ([self.selectPath isEqual:indexPath]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     cell.textLabel.text = array[indexPath.row];
     return cell;
 }

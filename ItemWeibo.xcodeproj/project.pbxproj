@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0B2F381D5AD2990038E892 /* UserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B2F371D5AD2990038E892 /* UserDefault.m */; };
+		3D0B2F3C1D5B0F7C0038E892 /* myTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B2F3A1D5B0F7C0038E892 /* myTableViewCell.m */; };
+		3D0B2F3D1D5B0F7C0038E892 /* myTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0B2F3B1D5B0F7C0038E892 /* myTableViewCell.xib */; };
 		3D1380B21D596D4200C7B64C /* Assets 2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1380B11D596D4200C7B64C /* Assets 2.xcassets */; };
 		3D1380B91D5970F600C7B64C /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1380B81D5970F600C7B64C /* GeneralViewController.m */; };
 		3D1380BC1D5971BF00C7B64C /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1380BB1D5971BF00C7B64C /* NavigationViewController.m */; };
@@ -27,6 +30,9 @@
 		3D44F1C91D582A8800E3D4B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D44F1C71D582A8800E3D4B7 /* LaunchScreen.storyboard */; };
 		3D44F1D41D582A8800E3D4B7 /* ItemWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F1D31D582A8800E3D4B7 /* ItemWeiboTests.m */; };
 		3D44F1DF1D582A8800E3D4B7 /* ItemWeiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F1DE1D582A8800E3D4B7 /* ItemWeiboUITests.m */; };
+		3DC6D6A71D5B274F00FDDCAF /* LoginSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */; };
+		3DC6D6AC1D5B31E700FDDCAF /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */; };
+		3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */; };
 		6892B20D8353F1B2738553E0 /* libPods-ItemWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898B05A17D15DD73B9F0BFC8 /* libPods-ItemWeibo.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +54,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0B2F361D5AD2990038E892 /* UserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefault.h; sourceTree = "<group>"; };
+		3D0B2F371D5AD2990038E892 /* UserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefault.m; sourceTree = "<group>"; };
+		3D0B2F391D5B0F7C0038E892 /* myTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableViewCell.h; sourceTree = "<group>"; };
+		3D0B2F3A1D5B0F7C0038E892 /* myTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTableViewCell.m; sourceTree = "<group>"; };
+		3D0B2F3B1D5B0F7C0038E892 /* myTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myTableViewCell.xib; sourceTree = "<group>"; };
 		3D1380B11D596D4200C7B64C /* Assets 2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 2.xcassets"; sourceTree = "<group>"; };
 		3D1380B71D5970F600C7B64C /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
 		3D1380B81D5970F600C7B64C /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
@@ -89,6 +100,12 @@
 		3D44F1DE1D582A8800E3D4B7 /* ItemWeiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemWeiboUITests.m; sourceTree = "<group>"; };
 		3D44F1E01D582A8800E3D4B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D44F1EC1D583DBE00E3D4B7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3DC6D6A51D5B274F00FDDCAF /* LoginSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSetViewController.h; sourceTree = "<group>"; };
+		3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSetViewController.m; sourceTree = "<group>"; };
+		3DC6D6AA1D5B31E700FDDCAF /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		3DC6D6AD1D5B52B300FDDCAF /* AboutWBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWBViewController.h; sourceTree = "<group>"; };
+		3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWBViewController.m; sourceTree = "<group>"; };
 		898B05A17D15DD73B9F0BFC8 /* libPods-ItemWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ItemWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31D7194D65502ACFF09B77B /* Pods-ItemWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemWeibo/Pods-ItemWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		C7BB82B888C00E4131690439 /* Pods-ItemWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemWeibo/Pods-ItemWeibo.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +145,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D0B2F3E1D5B17E80038E892 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B2F391D5B0F7C0038E892 /* myTableViewCell.h */,
+				3D0B2F3A1D5B0F7C0038E892 /* myTableViewCell.m */,
+				3D0B2F3B1D5B0F7C0038E892 /* myTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3D0B2F411D5B187E0038E892 /* Viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				3D1380C81D5978E900C7B64C /* WeViewController.h */,
+				3D1380C91D5978E900C7B64C /* WeViewController.m */,
+				3D1380D11D59B42B00C7B64C /* LoginViewController.h */,
+				3D1380D21D59B42B00C7B64C /* LoginViewController.m */,
+			);
+			name = Viewcontroller;
+			sourceTree = "<group>";
+		};
+		3D0B2F421D5B1CEB0038E892 /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B2F371D5AD2990038E892 /* UserDefault.m */,
+				3D0B2F361D5AD2990038E892 /* UserDefault.h */,
+			);
+			name = UserModel;
+			sourceTree = "<group>";
+		};
 		3D1380B31D59708300C7B64C /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +212,8 @@
 		3D1380C71D5978C700C7B64C /* We */ = {
 			isa = PBXGroup;
 			children = (
-				3D1380C81D5978E900C7B64C /* WeViewController.h */,
-				3D1380C91D5978E900C7B64C /* WeViewController.m */,
-				3D1380D11D59B42B00C7B64C /* LoginViewController.h */,
-				3D1380D21D59B42B00C7B64C /* LoginViewController.m */,
+				3D0B2F3E1D5B17E80038E892 /* View */,
+				3D0B2F411D5B187E0038E892 /* Viewcontroller */,
 			);
 			name = We;
 			sourceTree = "<group>";
@@ -181,8 +226,8 @@
 				3D1380D91D59D2E300C7B64C /* GlobalViewController.h */,
 				3D1380DA1D59D2E300C7B64C /* GlobalViewController.m */,
 				3D1380DF1D59DAFB00C7B64C /* MoreLanguageViewController.h */,
-				3D1380E01D59DAFB00C7B64C /* MoreLanguageViewController.m */,
 				3D1380E21D59DB7D00C7B64C /* MoviePlayViewController.h */,
+				3D1380E01D59DAFB00C7B64C /* MoreLanguageViewController.m */,
 				3D1380E31D59DB7D00C7B64C /* MoviePlayViewController.m */,
 				3D1380DC1D59D3CE00C7B64C /* AboutWeiboViewController.h */,
 				3D1380DD1D59D3CE00C7B64C /* AboutWeiboViewController.m */,
@@ -216,6 +261,9 @@
 			isa = PBXGroup;
 			children = (
 				3D1380D51D59C54D00C7B64C /* 设置 */,
+				3DC6D6A41D5B271C00FDDCAF /* 登录后设置 */,
+				3DC6D6A91D5B319200FDDCAF /* 通知 */,
+				3D0B2F421D5B1CEB0038E892 /* UserModel */,
 				3D1380C71D5978C700C7B64C /* We */,
 				3D1380C61D5978A500C7B64C /* Add */,
 				3D1380C11D5975E000C7B64C /* 首页 */,
@@ -264,6 +312,26 @@
 				C7BB82B888C00E4131690439 /* Pods-ItemWeibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DC6D6A41D5B271C00FDDCAF /* 登录后设置 */ = {
+			isa = PBXGroup;
+			children = (
+				3DC6D6A51D5B274F00FDDCAF /* LoginSetViewController.h */,
+				3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */,
+				3DC6D6AD1D5B52B300FDDCAF /* AboutWBViewController.h */,
+				3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */,
+			);
+			name = "登录后设置";
+			sourceTree = "<group>";
+		};
+		3DC6D6A91D5B319200FDDCAF /* 通知 */ = {
+			isa = PBXGroup;
+			children = (
+				3DC6D6AA1D5B31E700FDDCAF /* NotificationViewController.h */,
+				3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */,
+			);
+			name = "通知";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +404,7 @@
 				TargetAttributes = {
 					3D44F1B51D582A8800E3D4B7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = GS5K46FEMP;
 					};
 					3D44F1CE1D582A8800E3D4B7 = {
 						CreatedOnToolsVersion = 7.3;
@@ -373,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D44F1C91D582A8800E3D4B7 /* LaunchScreen.storyboard in Resources */,
+				3D0B2F3D1D5B0F7C0038E892 /* myTableViewCell.xib in Resources */,
 				3D1380B21D596D4200C7B64C /* Assets 2.xcassets in Resources */,
 				3D44F1C41D582A8800E3D4B7 /* Main.storyboard in Resources */,
 			);
@@ -448,7 +518,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1380CA1D5978E900C7B64C /* WeViewController.m in Sources */,
+				3DC6D6A71D5B274F00FDDCAF /* LoginSetViewController.m in Sources */,
 				3D1380E11D59DAFB00C7B64C /* MoreLanguageViewController.m in Sources */,
+				3DC6D6AC1D5B31E700FDDCAF /* NotificationViewController.m in Sources */,
 				3D1380DB1D59D2E300C7B64C /* GlobalViewController.m in Sources */,
 				3D1380DE1D59D3CE00C7B64C /* AboutWeiboViewController.m in Sources */,
 				3D44F1C11D582A8800E3D4B7 /* ViewController.m in Sources */,
@@ -459,8 +531,11 @@
 				3D1380BC1D5971BF00C7B64C /* NavigationViewController.m in Sources */,
 				3D44F1BE1D582A8800E3D4B7 /* AppDelegate.m in Sources */,
 				3D1380BF1D5971EC00C7B64C /* TabBarViewController.m in Sources */,
+				3D0B2F381D5AD2990038E892 /* UserDefault.m in Sources */,
 				3D1380D81D59C59400C7B64C /* SetViewController.m in Sources */,
 				3D44F1BB1D582A8800E3D4B7 /* main.m in Sources */,
+				3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */,
+				3D0B2F3C1D5B0F7C0038E892 /* myTableViewCell.m in Sources */,
 				3D1380CD1D597A1500C7B64C /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,11 +678,14 @@
 			baseConfigurationReference = C31D7194D65502ACFF09B77B /* Pods-ItemWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ItemWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = ItemWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-00.ItemWeibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -616,11 +694,14 @@
 			baseConfigurationReference = C7BB82B888C00E4131690439 /* Pods-ItemWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ItemWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = ItemWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-00.ItemWeibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -36,13 +36,22 @@
     [self.window makeKeyAndVisible];
     tabBar = [TabBarViewController new];
     FirstViewController *first = [FirstViewController new];
-    WeViewController *we = [WeViewController new];
+    navigation = [[UINavigationController alloc]initWithRootViewController:first];
     add = [AddViewController new];
     
-    navigation = [[UINavigationController alloc] initWithRootViewController:first];
-    weNa = [[UINavigationController alloc] initWithRootViewController:we];
-    
-    tabBar.viewControllers = @[navigation,add,weNa];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
+        LoginViewController *login = [LoginViewController new];
+        weNa = [[UINavigationController alloc] initWithRootViewController:login];
+        tabBar.viewControllers = @[navigation,add,weNa];
+        
+    }else{
+        WeViewController *we = [WeViewController new];
+        weNa = [[UINavigationController alloc] initWithRootViewController:we];
+        
+        tabBar.viewControllers = @[navigation,add,weNa];
+    }
+   
+  
     NSArray *names = @[@"首页",@"",@"我"];
     NSArray *images = @[[UIImage imageNamed:@"home"],[[UIImage imageNamed:@"arrow-up"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal],[UIImage imageNamed:@"person"]];
     for (int i = 0; i < tabBar.viewControllers.count; i++) {
@@ -83,6 +92,10 @@
         WBAuthorizeResponse *authorize = (WBAuthorizeResponse *)response;
         self.access_token = authorize.accessToken;
         self.user_id = authorize.userID;
+        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+        [user setObject:self.access_token forKey:@"access_token"];
+        [user setObject:self.user_id forKey:@"user_id"];
+        [user synchronize];
         
         NSLog(@"access = %@",authorize.accessToken);
         NSLog(@"user_ID = %@",authorize.userID);

@@ -24,8 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
+    self.loudSwitch = [UISwitch new];
+    [self.loudSwitch addTarget:self action:@selector(onSwitch) forControlEvents:UIControlEventValueChanged];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    self.loudSwitch.on = [user boolForKey:@"isOn"];
+    
+    self.loudSwitch.on = [user boolForKey:@"loudOn"];
    
 }
 
@@ -38,22 +41,36 @@
     array = @[@"声音",@"多语言环境",@"视频自动播放"];
 }
 
+- (void)onSwitch{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setBool:self.loudSwitch.on forKey:@"loudOn"];
+    [user synchronize];
+    
+   
+
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     switch (indexPath.section) {
         case 0:
         {
-            self.loudSwitch = [UISwitch new];
-            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-            [user setBool:self.loudSwitch.on forKey:@"isOn"];
-            [user synchronize];
-
-            cell.accessoryView = self.loudSwitch;
+             cell.accessoryView = self.loudSwitch;
+            
         }
             break;
         case 1:
         {
-             cell.accessoryView = [self customCell];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = @"跟随系统";
+            
+        }
+            break;
+        case 2:
+        {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = @"仅限WiFi";
+            
         }
             break;
         default:
@@ -63,20 +80,6 @@
     cell.textLabel.text = array[indexPath.section];
     return cell;
     
-}
-
-- (UIView *)customCell{
-    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 0)];
-    accessLabel = [[UILabel alloc] initWithFrame:CGRectMake(40,0, 100, 0)];
-    accessLabel.text = @"跟随系统";
-    CGSize size = [accessLabel.text sizeWithAttributes:@{NSFontAttributeName:accessLabel.font}];
-    accessLabel.frame = CGRectMake(45, -10, size.width, size.height);
-    [accessoryView addSubview:accessLabel];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(accessLabel.frame), -10, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"cut"];
-    [accessoryView addSubview:imageView];
-    return accessoryView;
-
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
