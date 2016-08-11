@@ -16,16 +16,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填微博名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgk-kJ-kTS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgk-kJ-kTS">
                         <rect key="frame" x="94" y="14" width="201" height="26"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="xiK-xQ-5uZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介:基本介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-gh-ymM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-gh-ymM">
                         <rect key="frame" x="94" y="48" width="224" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="490-bg-pfK"/>
@@ -47,18 +47,7 @@
                             <constraint firstAttribute="height" constant="57" id="HHc-Nb-JfC"/>
                         </constraints>
                         <state key="normal">
-                            <string key="title"> 10
-关注</string>
-                        </state>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kRo-50-qbN">
-                        <rect key="frame" x="277" y="91" width="138" height="57"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="57" id="sgf-ZE-0oo"/>
-                        </constraints>
-                        <state key="normal">
-                            <string key="title">1000
- 粉丝</string>
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head" translatesAutoresizingMaskIntoConstraints="NO" id="QYv-Zj-3Z2">
@@ -82,10 +71,14 @@
                             <constraint firstAttribute="height" constant="57" id="OQE-LN-K3M"/>
                         </constraints>
                         <state key="normal">
-                            <string key="title">100
-微博</string>
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kRo-50-qbN">
+                        <rect key="frame" x="277" y="91" width="138" height="57"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="57" id="sgf-ZE-0oo"/>
+                        </constraints>
                     </button>
                 </subviews>
                 <constraints>

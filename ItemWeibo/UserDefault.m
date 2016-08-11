@@ -7,6 +7,7 @@
 //
 
 #import "UserDefault.h"
+#import <NSObject+YYModel.h>
 
 static UserDefault *user = nil;
 @implementation UserDefault

@@ -14,6 +14,8 @@
 #import "LoginSetViewController.h"
 #import <NSObject+YYModel.h>
 #import <UIImageView+YYWebImage.h>
+#import "WebViewController.h"
+#import "AddFriendViewController.h"
 @interface LoginViewController ()<WBHttpRequestDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTb;
@@ -53,7 +55,7 @@
      self.title = @"我";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"好友添加" style:UIBarButtonItemStylePlain target:self action:@selector(addFriendAction:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setAction:)];
-    self.navigationController.navigationBar.tintColor = [UIColor grayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 - (void)setUI{
@@ -105,7 +107,7 @@
         }else{
             cell.introduceLabel.text = [NSString stringWithFormat:@"简介:%@",user.userDescription];
         }
-        [cell.weiboButton setTitle:[NSString stringWithFormat:@"%@\n关注",user.friends_count] forState:UIControlStateNormal];
+        [cell.weiboButton setTitle:[NSString stringWithFormat:@"%@\n微博",user.friends_count] forState:UIControlStateNormal];
         [cell.fansButton setTitle:[NSString stringWithFormat:@"%@\n粉丝",user.followers_count] forState:UIControlStateNormal];
         [cell.weiboButton addTarget:self action:@selector(weiboButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.fansButton addTarget:self action:@selector(fansButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -120,6 +122,10 @@
 }
 
 - (void)weiboButtonAction:(UIButton *)sender{
+    NSString *strUrl = [NSString stringWithFormat:@"http://m.weibo.cn/u/%@",user.uid];
+    WebViewController *wb = [WebViewController new];
+    wb.wburl = [NSURL URLWithString:strUrl];
+    [self.navigationController pushViewController:wb animated:YES];
     
 }
 - (void)attentionButtonAciton:(UIButton *)sender{
@@ -155,7 +161,8 @@
 }
 
 - (void)addFriendAction:(UIBarButtonItem *)sender{
-    
+    AddFriendViewController *addFriend = [AddFriendViewController new];
+    [self.navigationController pushViewController:addFriend animated:YES];
 }
 
 #pragma mark WbDelegate

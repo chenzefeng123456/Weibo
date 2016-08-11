@@ -9,6 +9,7 @@
 #import "LoginSetViewController.h"
 #import "NotificationViewController.h"
 #import "AboutWBViewController.h"
+#import "OpinionFeedbackViewController.h"
 @interface LoginSetViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTb;
@@ -78,11 +79,22 @@
             switch (indexPath.row) {
                 case 0:
                 {
-                    NSLog(@"清理缓存");
+                   
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                    UIAlertAction *command = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                         NSLog(@"清理缓存");
+                    }];
+                    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:command];
+                    [alert addAction:cancel];
+               
+                    [self presentViewController:alert animated:YES completion:nil];
+                
                 }
                     break;
                 case 1:{
-                    NSLog(@"意见反馈");
+                    OpinionFeedbackViewController *opinion = [OpinionFeedbackViewController new];
+                    [self.navigationController pushViewController:opinion animated:YES];
                 }
                     break;
                 case 2:
@@ -98,7 +110,18 @@
         }
             break;
         case 3:{
-            NSLog(@"退出当前账号");
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *command = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                 NSLog(@"退出当前账号");
+            }];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:command];
+            [alert addAction:cancel];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+
+          
         }
             break;
             
