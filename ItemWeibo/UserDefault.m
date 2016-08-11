@@ -11,10 +11,22 @@
 static UserDefault *user = nil;
 @implementation UserDefault
 
-+ (id)user{
++ (id)shareUser{
     if (!user) {
         user = [UserDefault new];
     }
     return user;
 }
+
++ (NSDictionary *)modelCustomPropertyMapper{
+    return @{@"uid":@"id",@"userClass":@"class",@"userDescription":@"description"};
+}
+
+@end
+@implementation UserStatus
+
++ (NSDictionary *)modelCustomPropertyMapper{
+    return @{@"stateID":@"id"};
+}
+
 @end

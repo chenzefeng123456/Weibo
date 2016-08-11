@@ -63,7 +63,7 @@
                         break;
                     case 3:case 4:
                     {
-                        cell.accessoryView = self.selectSw;
+                        cell.accessoryView = [UISwitch new];
                         
                     }
                         
@@ -77,6 +77,8 @@
             {
                 if (indexPathP.row == 1) {
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                }else{
+                    cell.accessoryView = [UISwitch new];
                 }
             }
                 break;

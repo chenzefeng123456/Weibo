@@ -12,11 +12,14 @@
 #import "UserDefault.h"
 #import "myTableViewCell.h"
 #import "LoginSetViewController.h"
+#import <NSObject+YYModel.h>
+#import <UIImageView+YYWebImage.h>
 @interface LoginViewController ()<WBHttpRequestDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTb;
     NSArray *dataSource;
     NSArray *imageArray;
+    UserDefault *user;
 }
 @end
 
@@ -70,7 +73,9 @@
         NSLog(@"error %@",error);
         
     }else{
-        
+        user = [UserDefault shareUser];
+        [user modelSetWithJSON:dic];
+        [myTb reloadData];
     }
 }
 
@@ -90,12 +95,38 @@
 
     }else{
         myTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([myTableViewCell class])];
-        UserDefault *user = [UserDefault user];
+        
+        [cell.headImage setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholder:[UIImage imageNamed:@"head"]];
+        
+        cell.wbName.text = user.name;
+        
+        if ([user.userDescription isEqualToString:@""]) {
+            cell.introduceLabel.text = [NSString stringWithFormat:@"简介:暂无介绍"];
+        }else{
+            cell.introduceLabel.text = [NSString stringWithFormat:@"简介:%@",user.userDescription];
+        }
+        [cell.weiboButton setTitle:[NSString stringWithFormat:@"%@\n关注",user.friends_count] forState:UIControlStateNormal];
+        [cell.fansButton setTitle:[NSString stringWithFormat:@"%@\n粉丝",user.followers_count] forState:UIControlStateNormal];
+        [cell.weiboButton addTarget:self action:@selector(weiboButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.fansButton addTarget:self action:@selector(fansButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.attentionButton addTarget:self action:@selector(attentionButtonAciton:) forControlEvents:UIControlEventTouchUpInside];
+        
+       
        
                                                                                                
         return cell;
     }
    
+}
+
+- (void)weiboButtonAction:(UIButton *)sender{
+    
+}
+- (void)attentionButtonAciton:(UIButton *)sender{
+    
+}
+- (void)fansButtonAction:(UIButton *)sender{
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
