@@ -94,6 +94,7 @@
                     break;
                 case 1:{
                     OpinionFeedbackViewController *opinion = [OpinionFeedbackViewController new];
+                  
                     [self.navigationController pushViewController:opinion animated:YES];
                 }
                     break;
@@ -112,9 +113,11 @@
         case 3:{
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *command = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                 NSLog(@"退出当前账号");
+            UIAlertAction *command = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
             }];
+        
+            
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:command];
             [alert addAction:cancel];

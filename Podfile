@@ -3,5 +3,6 @@ target 'ItemWeibo' do
 pod "WeiboSDK"
 pod "MBProgressHUD"
 pod 'YYKit', '~> 1.0.7'
+pod 'MJRefresh','~> 3.1.12'
 end
 

@@ -109,6 +109,7 @@
         }
         [cell.weiboButton setTitle:[NSString stringWithFormat:@"%@\n微博",user.friends_count] forState:UIControlStateNormal];
         [cell.fansButton setTitle:[NSString stringWithFormat:@"%@\n粉丝",user.followers_count] forState:UIControlStateNormal];
+        [cell.attentionButton setTitle:[NSString stringWithFormat:@"%@\n关注",user.friends_count ] forState:UIControlStateNormal];
         [cell.weiboButton addTarget:self action:@selector(weiboButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.fansButton addTarget:self action:@selector(fansButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.attentionButton addTarget:self action:@selector(attentionButtonAciton:) forControlEvents:UIControlEventTouchUpInside];
@@ -182,10 +183,9 @@
    
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
+- (void)viewDidDisappear:(BOOL)animated{
+//    self.tabBarController.tabBar.hidden = YES;
 }
-
 /*
 #pragma mark - Navigation
 

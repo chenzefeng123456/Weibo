@@ -28,7 +28,7 @@
     UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(pushSettingButton:)];
     self.navigationItem.rightBarButtonItem = bar;
       UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, UISCREEN_WIDTH, UISCREEN_WIDTH/2.11)];
-    imageView.image = [UIImage imageNamed:@"`MFL61EIY~TSV5ZZ@G@8@_H"];
+    imageView.image = [UIImage imageNamed:@"my_background"];
     [self.view addSubview:imageView];
     
     UIView *guanzhuView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView.frame), UISCREEN_WIDTH, 44)];
