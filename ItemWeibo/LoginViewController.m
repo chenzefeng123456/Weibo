@@ -162,6 +162,7 @@
 
 - (void)addFriendAction:(UIBarButtonItem *)sender{
     AddFriendViewController *addFriend = [AddFriendViewController new];
+  
     [self.navigationController pushViewController:addFriend animated:YES];
 }
 
@@ -179,6 +180,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 /*

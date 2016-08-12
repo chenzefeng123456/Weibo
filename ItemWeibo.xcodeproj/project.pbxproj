@@ -203,6 +203,7 @@
 				3D1380BE1D5971EC00C7B64C /* TabBarViewController.m */,
 				3D1380B71D5970F600C7B64C /* GeneralViewController.h */,
 				3D1380B81D5970F600C7B64C /* GeneralViewController.m */,
+				3D44F1EC1D583DBE00E3D4B7 /* PrefixHeader.pch */,
 				3D44F1C21D582A8800E3D4B7 /* Main.storyboard */,
 			);
 			name = Other;
@@ -292,7 +293,6 @@
 				3D44F1C01D582A8800E3D4B7 /* ViewController.m */,
 				3D44F1C71D582A8800E3D4B7 /* LaunchScreen.storyboard */,
 				3DD4D9AF1D5C78B600873792 /* Assets 3.xcassets */,
-				3D44F1EC1D583DBE00E3D4B7 /* PrefixHeader.pch */,
 				3D44F1CA1D582A8800E3D4B7 /* Info.plist */,
 				3D44F1B91D582A8800E3D4B7 /* Supporting Files */,
 			);

@@ -25,7 +25,7 @@
     
     UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     sendButton.frame = CGRectMake(0, 0, 44, 25);
-    sendButton.layer.cornerRadius = 2;
+    sendButton.layer.cornerRadius = 5;
     [sendButton setBackgroundColor:[UIColor orangeColor]];
     [sendButton setTintColor:[UIColor whiteColor]];
     [sendButton setTitle:@"发送" forState:UIControlStateNormal];
@@ -33,9 +33,13 @@
     UIBarButtonItem *sendItem = [[UIBarButtonItem alloc] initWithCustomView:sendButton];
     self.navigationItem.rightBarButtonItem = sendItem;
     
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 74, UISCREEN_WIDTH, UISCREEN_HEIGHT-74)];
+    UITextView *textView = [[UITextView alloc] initWithFrame:self.view.frame];
     textView.text = @"@微博iPhone客户端#iPhone客户端意见反馈#版本6.8.1,iPhone5,4,OS9.3.4,网络WIFI";
+    textView.font = [UIFont systemFontOfSize:22];
+    textView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:textView];
+    
+   
 }
 
 - (void)sendAction:(UIBarButtonItem *)sender{
