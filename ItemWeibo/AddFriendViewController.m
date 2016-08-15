@@ -2,6 +2,7 @@
 #import "AddFriendViewController.h"
 #import <MJRefresh.h>
 #import "FirstViewController.h"
+#import "ScanViewController.h"
 @interface AddFriendViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTb;
@@ -78,8 +79,8 @@
     
     UIAlertAction *backHomePage = [UIAlertAction actionWithTitle:@"返回首页" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"首页");
-       
         self.tabBarController.selectedIndex = 0;
+        [self.navigationController popToRootViewControllerAnimated:YES];
         
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -89,6 +90,13 @@
     [alertController addAction:backHomePage];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        ScanViewController *scan = [ScanViewController new];
+        [self.navigationController pushViewController:scan animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

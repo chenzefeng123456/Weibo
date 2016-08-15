@@ -16,14 +16,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setUI];
 }
 
+- (void)setUI{
+    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+    UIView *buttomView = [[UIView alloc] initWithFrame:CGRectMake(0,UISCREEN_HEIGHT-44, UISCREEN_WIDTH, 44)];
+    buttomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:buttomView];
+    UIImageView *clearImage = [[UIImageView alloc] initWithFrame:CGRectMake(UISCREEN_WIDTH/2 -11, 11, 22, 22)];
+    clearImage.image = [UIImage imageNamed:@"back"];
+    [buttomView addSubview:clearImage];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"我被点了");
+   
+}
 /*
 #pragma mark - Navigation
 

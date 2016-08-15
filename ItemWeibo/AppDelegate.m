@@ -13,21 +13,22 @@
 #import "GeneralViewController.h"
 #import "FirstViewController.h"
 #import "WeViewController.h"
-#import "AddViewController.h"
+
 #import "LoginViewController.h"
 #import <MBProgressHUD.h>
 @interface AppDelegate ()<WeiboSDKDelegate>
 {
     TabBarViewController *tabBar;
-    UINavigationController *navigation;
-    UINavigationController *weNa;
-    AddViewController *add;
 }
+
+
 @end
 
 @implementation AppDelegate
 
-
+@synthesize navigation = navigation;
+@synthesize add = add;
+@synthesize weNa = weNa;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAPPKey];

@@ -2,7 +2,7 @@
 //  AboutWeiboViewController.m
 //  ItemWeibo
 //
-//  Created by 3014 on 16/8/9.
+//  Created by 3014 on 16/8/13.
 //  Copyright © 2016年 3014. All rights reserved.
 //
 
@@ -16,12 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUI];
+    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)setUI{
-    self.title = @"关于微博";
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -10,10 +10,13 @@
 #import "NotificationViewController.h"
 #import "AboutWBViewController.h"
 #import "OpinionFeedbackViewController.h"
-@interface LoginSetViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "AppDelegate.h"
+#import <WeiboSDK.h>
+@interface LoginSetViewController ()<UITableViewDelegate,UITableViewDataSource,WBHttpRequestDelegate>
 {
     UITableView *myTb;
     NSArray *dataSource;
+    AppDelegate *appDelegate;
 }
 @end
 
@@ -22,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
 }
 
 - (void)setUI{
@@ -114,9 +119,11 @@
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *command = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-        
+                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+                NSString *accessgg = [user objectForKey:@"access_token"];
+               
+                [WBHttpRequest requestWithAccessToken:accessgg url:@"https://api.weibo.com/oauth2/revokeoauth2" httpMethod:@"GET" params:nil delegate:self withTag:@"1111"];
+}];
             
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:command];
@@ -134,6 +141,27 @@
     }
 }
 
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error{
+    NSLog(@"error = %@",error);
+}
+
+- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response{
+    NSLog(@"response = %@",response);
+}
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result{
+    if ([result containsString:@"true"]) {
+        NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+        [userD setObject:nil forKey:@"access_token"];
+        [userD setObject:nil forKey:@"user_id"];
+        AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        self.tabBarController.viewControllers = @[appD.navigation,appD.add,appD.weNa];
+        NSLog(@"ddd");
+
+//        exit(0);
+    }
+    
+    NSLog(@"result = %@",result);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
