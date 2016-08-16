@@ -93,8 +93,8 @@
     NSLog(@"stringValue = %@",stringValue);
     NSURL *url = [NSURL URLWithString:stringValue];
     NSLog(@"url = %@",url);
-    if ([url.host isEqualToString:@""]) {
-        
+    if ([url.host isEqualToString:@"wechat"]) {
+        stringValue = @"wechat://";
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
 }

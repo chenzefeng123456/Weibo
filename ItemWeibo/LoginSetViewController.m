@@ -12,6 +12,8 @@
 #import "OpinionFeedbackViewController.h"
 #import "AppDelegate.h"
 #import <WeiboSDK.h>
+#import "WeViewController.h"
+
 @interface LoginSetViewController ()<UITableViewDelegate,UITableViewDataSource,WBHttpRequestDelegate>
 {
     UITableView *myTb;
@@ -154,6 +156,7 @@
         [userD setObject:nil forKey:@"access_token"];
         [userD setObject:nil forKey:@"user_id"];
         AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        appD.weNa = [[UINavigationController alloc] initWithRootViewController:[WeViewController new]];
         self.tabBarController.viewControllers = @[appD.navigation,appD.add,appD.weNa];
         NSLog(@"ddd");
 
