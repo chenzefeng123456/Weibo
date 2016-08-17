@@ -40,6 +40,7 @@
 		3DD4D9AE1D5C361100873792 /* NewfanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD4D9AD1D5C361100873792 /* NewfanViewController.m */; };
 		3DD4D9B41D5C7A7D00873792 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD4D9B31D5C7A7D00873792 /* AddFriendViewController.m */; };
 		3DD4D9B81D5C7C9900873792 /* OpinionFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD4D9B71D5C7C9900873792 /* OpinionFeedbackViewController.m */; };
+		415691121D64B40C007310FD /* OpinionSendWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415691111D64B40C007310FD /* OpinionSendWeiboViewController.m */; };
 		6892B20D8353F1B2738553E0 /* libPods-ItemWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898B05A17D15DD73B9F0BFC8 /* libPods-ItemWeibo.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		3DD4D9B31D5C7A7D00873792 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
 		3DD4D9B61D5C7C9900873792 /* OpinionFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionFeedbackViewController.h; sourceTree = "<group>"; };
 		3DD4D9B71D5C7C9900873792 /* OpinionFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionFeedbackViewController.m; sourceTree = "<group>"; };
+		415691101D64B40C007310FD /* OpinionSendWeiboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionSendWeiboViewController.h; sourceTree = "<group>"; };
+		415691111D64B40C007310FD /* OpinionSendWeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionSendWeiboViewController.m; sourceTree = "<group>"; };
 		898B05A17D15DD73B9F0BFC8 /* libPods-ItemWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ItemWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31D7194D65502ACFF09B77B /* Pods-ItemWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemWeibo/Pods-ItemWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		C7BB82B888C00E4131690439 /* Pods-ItemWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemWeibo/Pods-ItemWeibo.release.xcconfig"; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 			children = (
 				3DD4D9B61D5C7C9900873792 /* OpinionFeedbackViewController.h */,
 				3DD4D9B71D5C7C9900873792 /* OpinionFeedbackViewController.m */,
+				415691101D64B40C007310FD /* OpinionSendWeiboViewController.h */,
+				415691111D64B40C007310FD /* OpinionSendWeiboViewController.m */,
 			);
 			name = "意见反馈";
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 				3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */,
 				3D0B2F3C1D5B0F7C0038E892 /* myTableViewCell.m in Sources */,
 				3D1380CD1D597A1500C7B64C /* AddViewController.m in Sources */,
+				415691121D64B40C007310FD /* OpinionSendWeiboViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,27 +1,28 @@
 //
-//  OpinionFeedbackViewController.m
+//  OpinionSendWeiboViewController.m
 //  ItemWeibo
 //
-//  Created by 3014 on 16/8/11.
+//  Created by 陈泽峰 on 16/8/17.
 //  Copyright © 2016年 3014. All rights reserved.
 //
 
-#import "OpinionFeedbackViewController.h"
-#import "UserDefault.h"
-@interface OpinionFeedbackViewController ()
+#import "OpinionSendWeiboViewController.h"
+
+@interface OpinionSendWeiboViewController ()
 {
     UITextView *textView;
 }
+
 @end
 
-@implementation OpinionFeedbackViewController
+@implementation OpinionSendWeiboViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
     [self setWeiboType];
-}
 
+}
 - (void)setUI{
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
     self.navigationItem.leftBarButtonItem = cancel;
@@ -38,7 +39,7 @@
     
     textView = [[UITextView alloc] initWithFrame:self.view.frame];
     
-   
+    
     textView.font = [UIFont systemFontOfSize:22];
     textView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:textView];
@@ -77,19 +78,19 @@
     open.layer.masksToBounds = YES;
     open.frame = CGRectMake(UISCREEN_WIDTH-80, 0, 70, 25);
     [tooBarView addSubview:open];
-
-
+    
+    
 }
 - (void)setWeiboType{
     
     switch (self.type) {
-        case UIOpinionFeedbackType:
+        case OpinionFeedbackType:
         {
-             self.title = @"发表反馈意见";
-             textView.text = @"@微博iPhone客户端#iPhone客户端意见反馈#版本6.8.1,iPhone5,4,OS9.3.4,网络WIFI";
+            self.title = @"发表反馈意见";
+            textView.text = @"@微博iPhone客户端#iPhone客户端意见反馈#版本6.8.1,iPhone5,4,OS9.3.4,网络WIFI";
         }
             break;
-        case UITextSendWeiboType:
+        case TextSendWeiboType:
         {
             self.title = @"发送微博";
             
@@ -98,8 +99,8 @@
         default:
             break;
     }
-   
-   
+    
+    
     
     
     
@@ -129,6 +130,7 @@
 - (void)cancelAction:(UIBarButtonItem *)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

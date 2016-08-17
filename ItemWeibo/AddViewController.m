@@ -1,6 +1,8 @@
 
 #import "AddViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "OpinionFeedbackViewController.h"
+#import "OpinionSendWeiboViewController.h"
 @interface AddViewController ()<CLLocationManagerDelegate>
 {
     int index;
@@ -20,11 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self checkLocationState];
     weekArray = @[[NSNull null],@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
 
     [self setUI];
     index = 0;
+    [self checkLocationState];
+
 //    [self weather];
     
 
@@ -50,7 +53,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"失败");
+    NSLog(@"error = %@",error);
+    
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     CLLocation *location = [locations lastObject];
@@ -62,7 +66,7 @@
            dispatch_async(dispatch_get_main_queue(), ^{
              
                NSString *str = [NSString stringWithFormat:@"%@",error];
-               NSLog(@"error = %@",str);
+               NSLog(@"error1 = %@",str);
            });
        }else{
            dispatch_async(dispatch_get_main_queue(), ^{
@@ -74,6 +78,7 @@
                NSRange rangeStr = [mutableString rangeOfString:@" shi"];
                [mutableString deleteCharactersInRange:rangeStr];
                NSRange range = [mutableString rangeOfString:@" "];
+               NSLog(@"str= %@",mutableString);
                [mutableString deleteCharactersInRange:range];
                [self weather];
 
@@ -149,6 +154,7 @@
             itemButton.frame = CGRectMake(j * gapWidth, i * gapWidth+20, buttonWidth, buttonWidth);
             [itemButton setImage:imageArray[index-1] forState:UIControlStateNormal];
             [buttonView addSubview:itemButton];
+            itemButton.tag = 1000+index;
             [itemButton addTarget:self action:@selector(itemAction:) forControlEvents:UIControlEventTouchUpInside];
             
             if (index ==2||index ==3) {
@@ -176,6 +182,18 @@
 }
 
 - (void)itemAction:(UIButton *)sender{
+    switch (sender.tag) {
+        case 1001:
+        {
+            OpinionSendWeiboViewController *sendWeibo = [OpinionSendWeiboViewController new];
+            sendWeibo.type = UITextSendWeiboType;
+            [self presentViewController:sendWeibo animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
+    }
     
 }
 - (void)viewWillAppear:(BOOL)animated{

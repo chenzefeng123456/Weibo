@@ -101,7 +101,7 @@
                     break;
                 case 1:{
                     OpinionFeedbackViewController *opinion = [OpinionFeedbackViewController new];
-                  
+                    opinion.type = UIOpinionFeedbackType;
                     [self.navigationController pushViewController:opinion animated:YES];
                 }
                     break;
