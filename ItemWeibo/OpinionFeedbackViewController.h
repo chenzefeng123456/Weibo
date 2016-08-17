@@ -7,7 +7,13 @@
 //
 
 #import "GeneralViewController.h"
-
+typedef NS_ENUM(NSUInteger,SendWeboFeedbackTupe){
+    UITextSendWeiboType,
+    UIFriendSendWeiboType,
+    UIOpinionFeedbackType,
+    
+};
 @interface OpinionFeedbackViewController : GeneralViewController
+@property(nonatomic,assign) SendWeboFeedbackTupe type;
 
 @end

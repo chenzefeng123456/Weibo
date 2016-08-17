@@ -1,11 +1,13 @@
 
 #import "AddViewController.h"
 #import <CoreLocation/CoreLocation.h>
-@interface AddViewController ()
+@interface AddViewController ()<CLLocationManagerDelegate>
 {
     int index;
     NSArray *weekArray;
     UILabel *weatherLabel;
+    NSString *locality;
+    NSMutableString *mutableString;
   
 }
 
@@ -18,26 +20,75 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self checkLocationState];
     weekArray = @[[NSNull null],@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
 
     [self setUI];
     index = 0;
-    [self weather];
+//    [self weather];
+    
+
+   
 }
 
 - (CLLocationManager *)locationManager{
     if (!_locationManager) {
         _locationManager = [CLLocationManager new];
         _locationManager.distanceFilter = kCLDistanceFilterNone;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy= kCLLocationAccuracyBestForNavigation;
     }
     return _locationManager;
 }
 
+
+- (void)checkLocationState{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied||[CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"失败");
+}
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocation *location = [locations lastObject];
+    CLLocationDegrees latitude = location.coordinate.latitude;
+    CLLocationDegrees longitude = location.coordinate.longitude;
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:latitude longitude:longitude] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+       if (error || placemarks.count == 0) {
+           dispatch_async(dispatch_get_main_queue(), ^{
+             
+               NSString *str = [NSString stringWithFormat:@"%@",error];
+               NSLog(@"error = %@",str);
+           });
+       }else{
+           dispatch_async(dispatch_get_main_queue(), ^{
+               CLPlacemark *placemark = [placemarks lastObject];
+               locality = placemark.locality;
+               mutableString = [NSMutableString stringWithString:locality];
+               CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
+               CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformStripDiacritics, false);
+               NSRange rangeStr = [mutableString rangeOfString:@" shi"];
+               [mutableString deleteCharactersInRange:rangeStr];
+               NSRange range = [mutableString rangeOfString:@" "];
+               [mutableString deleteCharactersInRange:range];
+               [self weather];
+
+           });
+           
+       }
+   }];
+    
+}
 - (void)weather{
    weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 150, 30)];
     [self.view addSubview:weatherLabel];
-    NSString *str = @"https://api.thinkpage.cn/v3/weather/now.json?key=4wnctvjabfnwbxhe&location=guangzhou&language=zh-Hans&unit=c";
+    NSLog(@"muta = %@",mutableString);
+    NSString *str = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/now.json?key=4wnctvjabfnwbxhe&location=%@&language=zh-Hans&unit=c",mutableString];
+    
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -129,7 +180,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+       self.tabBarController.tabBar.hidden = YES;
     UIView *buttomView = [[UIView alloc] initWithFrame:CGRectMake(0,UISCREEN_HEIGHT-44, UISCREEN_WIDTH, 44)];
     buttomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:buttomView];
