@@ -8,6 +8,7 @@
 
 #import "OpinionFeedbackViewController.h"
 #import "UserDefault.h"
+#import "ShowLocationViewController.h"
 @interface OpinionFeedbackViewController ()
 {
     UITextView *textView;
@@ -20,6 +21,7 @@
     [super viewDidLoad];
     [self setUI];
     [self setWeiboType];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)setUI{
@@ -50,13 +52,12 @@
     tooBar.backgroundColor = [UIColor whiteColor];
     [tooBarView addSubview:tooBar];
     UIBarButtonItem *picture = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"picture"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(pictureAction:)];
-    picture.width = 20;
     UIBarButtonItem *and = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"@"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(andAction:)];
     UIBarButtonItem *jin = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"topic"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(topicAction:)];
     UIBarButtonItem *emoji = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"emoji"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(emojiAction:)];
     UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(addAction:)];
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    [tooBar setItems:@[picture,space,and,space,jin,space,emoji,space,add] animated:YES];
+    [tooBar setItems:@[space, picture,space,and,space,jin,space,emoji,space,add,space] animated:YES];
     
     UIButton *show = [UIButton buttonWithType:UIButtonTypeCustom];
     [show setImage:[UIImage imageNamed:@"location"] forState:UIControlStateNormal];
@@ -66,6 +67,7 @@
     [show setTitle:@"显示位置" forState:UIControlStateNormal];
     show.frame = CGRectMake(10, 0, 100, 25);
     show.backgroundColor = [UIColor whiteColor];
+    [show addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
     [tooBarView addSubview:show];
     
     UIButton *open = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -105,6 +107,10 @@
     
 }
 
+- (void)showLocation:(UIButton *)sender{
+    ShowLocationViewController *show = [ShowLocationViewController new];
+    [self.navigationController pushViewController:show animated:YES];
+}
 - (void)addAction:(UIBarButtonItem *)sender{
     
 }
@@ -119,9 +125,13 @@
 }
 - (void)pictureAction:(UIBarButtonItem *)sender{
     
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
 }
 - (void)sendAction:(UIBarButtonItem *)sender{
     NSLog(@"发送");

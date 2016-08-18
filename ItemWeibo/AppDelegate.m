@@ -39,17 +39,17 @@
     FirstViewController *first = [FirstViewController new];
     navigation = [[UINavigationController alloc]initWithRootViewController:first];
     add = [AddViewController new];
-    
+    UINavigationController *addNa = [[UINavigationController alloc] initWithRootViewController:add];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
         LoginViewController *login = [LoginViewController new];
         weNa = [[UINavigationController alloc] initWithRootViewController:login];
-        tabBar.viewControllers = @[navigation,add,weNa];
+        tabBar.viewControllers = @[navigation,addNa,weNa];
         
     }else{
         WeViewController *we = [WeViewController new];
         weNa = [[UINavigationController alloc] initWithRootViewController:we];
         
-        tabBar.viewControllers = @[navigation,add,weNa];
+        tabBar.viewControllers = @[navigation,addNa,weNa];
     }
    
   

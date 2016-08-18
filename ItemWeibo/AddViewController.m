@@ -2,7 +2,6 @@
 #import "AddViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "OpinionFeedbackViewController.h"
-#import "OpinionSendWeiboViewController.h"
 @interface AddViewController ()<CLLocationManagerDelegate>
 {
     int index;
@@ -27,8 +26,8 @@
     [self setUI];
     index = 0;
     [self checkLocationState];
+    self.navigationController.navigationBar.hidden = YES;
 
-//    [self weather];
     
 
    
@@ -78,7 +77,6 @@
                NSRange rangeStr = [mutableString rangeOfString:@" shi"];
                [mutableString deleteCharactersInRange:rangeStr];
                NSRange range = [mutableString rangeOfString:@" "];
-               NSLog(@"str= %@",mutableString);
                [mutableString deleteCharactersInRange:range];
                [self weather];
 
@@ -91,7 +89,7 @@
 - (void)weather{
    weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 150, 30)];
     [self.view addSubview:weatherLabel];
-    NSLog(@"muta = %@",mutableString);
+    //NSLog(@"muta = %@",mutableString);
     NSString *str = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/now.json?key=4wnctvjabfnwbxhe&location=%@&language=zh-Hans&unit=c",mutableString];
     
     NSURL *url = [NSURL URLWithString:str];
@@ -185,9 +183,9 @@
     switch (sender.tag) {
         case 1001:
         {
-            OpinionSendWeiboViewController *sendWeibo = [OpinionSendWeiboViewController new];
+           OpinionFeedbackViewController  *sendWeibo = [OpinionFeedbackViewController new];
             sendWeibo.type = UITextSendWeiboType;
-            [self presentViewController:sendWeibo animated:YES completion:nil];
+             [self.navigationController pushViewController:sendWeibo animated:YES];
         }
             break;
             
@@ -206,16 +204,16 @@
     clearImage.image = [UIImage imageNamed:@"back"];
     [buttomView addSubview:clearImage];
 }
-- (void)viewDidDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = NO;
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.tabBarController.selectedIndex = 0;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.tabBarController.selectedIndex = 0;
 }
 /*
 #pragma mark - Navigation

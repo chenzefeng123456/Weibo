@@ -183,9 +183,6 @@
    
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-//    self.tabBarController.tabBar.hidden = YES;
-}
 /*
 #pragma mark - Navigation
 
