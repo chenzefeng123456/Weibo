@@ -111,7 +111,7 @@
 - (void)setUI{
     
     UIButton *oppoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    oppoButton.frame = CGRectMake(UISCREEN_WIDTH-150, 44, UISCREEN_WIDTH-300, 100);
+    oppoButton.frame = CGRectMake(UISCREEN_WIDTH-150, 44, UISCREEN_WIDTH-150, 100);
     [oppoButton setImage:[UIImage imageNamed:@"issue_AD"] forState:UIControlStateNormal];
     [oppoButton setImage:[UIImage imageNamed:@"issue_AD"] forState:UIControlStateHighlighted];
     UILabel *dateNumberLabel = [UILabel new];
@@ -137,19 +137,21 @@
     buttonView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:buttonView];
     NSArray *viewH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[buttonView]-0-|" options:0 metrics:NULL views:NSDictionaryOfVariableBindings(buttonView)];
-    NSArray *V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[buttonView]-44-|" options:0 metrics:NULL views:NSDictionaryOfVariableBindings(buttonView)];
+    NSArray *V = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[buttonView]-44-|" options:0 metrics:NULL views:NSDictionaryOfVariableBindings(buttonView)];
     [self.view addConstraints:V];
     [self.view addConstraints:viewH];
     
     NSArray *imageArray = @[[UIImage imageNamed:@"word"],[UIImage imageNamed:@"image"],[UIImage imageNamed:@"topline"],[UIImage imageNamed:@"checkin"],[UIImage imageNamed:@"video"],[UIImage imageNamed:@"issue_more"]];
     NSArray *labelArray = @[@"文字",@"照片/视频",@"头条文章",@"签到",@"直播",@"更多"];
-    float buttonWidth = UISCREEN_WIDTH/3-18;
-    float gapWidth = (UISCREEN_WIDTH - 44*3)/2;
+
+    float buttonWidth = UISCREEN_WIDTH/5;
+    float gapWidth = (UISCREEN_WIDTH - 3 * buttonWidth)/4;
+    
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 3; j++) {
             index++;
             UIButton *itemButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            itemButton.frame = CGRectMake(j * gapWidth, i * gapWidth+20, buttonWidth, buttonWidth);
+            itemButton.frame = CGRectMake((j + 1) * gapWidth + j * buttonWidth,i *(buttonWidth + buttonWidth),buttonWidth,buttonWidth);
             [itemButton setImage:imageArray[index-1] forState:UIControlStateNormal];
             [buttonView addSubview:itemButton];
             itemButton.tag = 1000+index;
@@ -157,12 +159,12 @@
             
             if (index ==2||index ==3) {
                 if (index == 2) {
-                    UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(gapWidth+25, 140, buttonWidth, 20)];
+                    UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(2*gapWidth + j *buttonWidth+9, i *(buttonWidth + buttonWidth)+buttonWidth+20, buttonWidth+40, 20)];
                     itemLabel2.text = labelArray[index -1];
                     [buttonView addSubview:itemLabel2];
 
                 }else{
-                    UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(2 *gapWidth+28, 140, buttonWidth, 20)];
+                    UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(gapWidth*3 + j *buttonWidth+11,i *(buttonWidth + buttonWidth)+buttonWidth+20, buttonWidth+40, 20)];
                     itemLabel2.text = labelArray[index -1];
                     [buttonView addSubview:itemLabel2];
 
@@ -171,7 +173,7 @@
                 }
 
             
-            UILabel *itemLabel = [[UILabel alloc] initWithFrame:CGRectMake(j * gapWidth+40, i*gapWidth+140, buttonWidth, 20)];
+            UILabel *itemLabel = [[UILabel alloc] initWithFrame:CGRectMake((j+1) * gapWidth + j *buttonWidth+13,i *(buttonWidth + buttonWidth)+buttonWidth+20,buttonWidth,20)];
             itemLabel.text = labelArray[index-1];
             [buttonView addSubview:itemLabel];
 
@@ -196,7 +198,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-       self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
     UIView *buttomView = [[UIView alloc] initWithFrame:CGRectMake(0,UISCREEN_HEIGHT-44, UISCREEN_WIDTH, 44)];
     buttomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:buttomView];

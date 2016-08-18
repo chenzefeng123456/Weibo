@@ -45,7 +45,7 @@
     textView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:textView];
     
-    UIView *tooBarView = [[UIView alloc] initWithFrame:CGRectMake(0, UISCREEN_HEIGHT-74, UISCREEN_WIDTH, 74)];
+    UIView *tooBarView = [[UIView alloc] initWithFrame:CGRectMake(0, UISCREEN_HEIGHT-84, UISCREEN_WIDTH, 74)];
     tooBarView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:tooBarView];
     UIToolbar *tooBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,30, UISCREEN_WIDTH, 44)];
