@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SelectPhotoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="108" height="93"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="108" height="93"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFV-IS-fob">
+                        <rect key="frame" x="0.0" y="0.0" width="108" height="93"/>
+                        <connections>
+                            <action selector="selectPhoto:" destination="gTV-IL-0wX" eventType="touchUpInside" id="9Tw-kn-n7c"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVc-XZ-aSR">
+                        <rect key="frame" x="0.0" y="0.0" width="108" height="93"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtz-0x-Jcw">
+                        <rect key="frame" x="77" y="0.0" width="31" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Wgz-QF-yz4"/>
+                            <constraint firstAttribute="width" constant="31" id="rVH-4L-NPe"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="wtz-0x-Jcw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6Zn-Sy-VcA"/>
+                <constraint firstAttribute="bottom" secondItem="NVc-XZ-aSR" secondAttribute="bottom" id="7iN-h2-Rg9"/>
+                <constraint firstItem="NVc-XZ-aSR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EyY-hd-qDb"/>
+                <constraint firstItem="WFV-IS-fob" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fql-gN-jTJ"/>
+                <constraint firstItem="NVc-XZ-aSR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q3y-6h-hnE"/>
+                <constraint firstAttribute="trailing" secondItem="wtz-0x-Jcw" secondAttribute="trailing" id="dO5-cx-W8B"/>
+                <constraint firstAttribute="bottom" secondItem="WFV-IS-fob" secondAttribute="bottom" id="e03-iK-gPU"/>
+                <constraint firstItem="WFV-IS-fob" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hZ6-4r-ypv"/>
+                <constraint firstAttribute="trailing" secondItem="WFV-IS-fob" secondAttribute="trailing" id="jFS-oc-zGJ"/>
+                <constraint firstAttribute="trailing" secondItem="NVc-XZ-aSR" secondAttribute="trailing" id="vXj-xQ-bbY"/>
+            </constraints>
+            <size key="customSize" width="108" height="93"/>
+            <connections>
+                <outlet property="imagegao" destination="wtz-0x-Jcw" id="q7f-0E-BOc"/>
+                <outlet property="selectImageView" destination="NVc-XZ-aSR" id="IX2-P7-nBm"/>
+                <outlet property="selectPhotoButton" destination="WFV-IS-fob" id="8JI-gF-d7c"/>
+            </connections>
+            <point key="canvasLocation" x="215" y="248.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

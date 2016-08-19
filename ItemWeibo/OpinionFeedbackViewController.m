@@ -9,6 +9,7 @@
 #import "OpinionFeedbackViewController.h"
 #import "UserDefault.h"
 #import "ShowLocationViewController.h"
+#import "SelectPhotoViewController.h"
 @interface OpinionFeedbackViewController ()
 {
     UITextView *textView;
@@ -124,7 +125,8 @@
     
 }
 - (void)pictureAction:(UIBarButtonItem *)sender{
-    
+    SelectPhotoViewController *select = [SelectPhotoViewController new];
+    [self.navigationController pushViewController:select animated:YES];
     
 }
 - (void)viewWillAppear:(BOOL)animated{

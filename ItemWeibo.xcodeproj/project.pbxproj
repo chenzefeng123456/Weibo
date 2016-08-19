@@ -32,6 +32,10 @@
 		3D44F1DF1D582A8800E3D4B7 /* ItemWeiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F1DE1D582A8800E3D4B7 /* ItemWeiboUITests.m */; };
 		3D72D3141D61575E007D5193 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72D3131D61575E007D5193 /* ScanViewController.m */; };
 		3D72D3161D61BCAC007D5193 /* Assets 4.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D72D3151D61BCAC007D5193 /* Assets 4.xcassets */; };
+		3DC33CDB1D66E3E000FBE565 /* SelectPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC33CDA1D66E3E000FBE565 /* SelectPhotoViewController.m */; };
+		3DC33CE41D66E79700FBE565 /* SelectPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC33CE21D66E79700FBE565 /* SelectPhotoCollectionViewCell.m */; };
+		3DC33CE51D66E79700FBE565 /* SelectPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC33CE31D66E79700FBE565 /* SelectPhotoCollectionViewCell.xib */; };
+		3DC33CE81D66EE4200FBE565 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC33CE71D66EE4200FBE565 /* PhotoModel.m */; };
 		3DC6D6A71D5B274F00FDDCAF /* LoginSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */; };
 		3DC6D6AC1D5B31E700FDDCAF /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */; };
 		3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */; };
@@ -112,6 +116,13 @@
 		3D72D3121D61575E007D5193 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		3D72D3131D61575E007D5193 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		3D72D3151D61BCAC007D5193 /* Assets 4.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 4.xcassets"; sourceTree = "<group>"; };
+		3DC33CD91D66E3E000FBE565 /* SelectPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoViewController.h; sourceTree = "<group>"; };
+		3DC33CDA1D66E3E000FBE565 /* SelectPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoViewController.m; sourceTree = "<group>"; };
+		3DC33CE11D66E79700FBE565 /* SelectPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		3DC33CE21D66E79700FBE565 /* SelectPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		3DC33CE31D66E79700FBE565 /* SelectPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		3DC33CE61D66EE4200FBE565 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
+		3DC33CE71D66EE4200FBE565 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
 		3DC6D6A51D5B274F00FDDCAF /* LoginSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSetViewController.h; sourceTree = "<group>"; };
 		3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSetViewController.m; sourceTree = "<group>"; };
 		3DC6D6AA1D5B31E700FDDCAF /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
@@ -351,6 +362,13 @@
 		3DC33CD81D66E2FE00FBE565 /* 图片上传 */ = {
 			isa = PBXGroup;
 			children = (
+				3DC33CD91D66E3E000FBE565 /* SelectPhotoViewController.h */,
+				3DC33CDA1D66E3E000FBE565 /* SelectPhotoViewController.m */,
+				3DC33CE11D66E79700FBE565 /* SelectPhotoCollectionViewCell.h */,
+				3DC33CE21D66E79700FBE565 /* SelectPhotoCollectionViewCell.m */,
+				3DC33CE31D66E79700FBE565 /* SelectPhotoCollectionViewCell.xib */,
+				3DC33CE61D66EE4200FBE565 /* PhotoModel.h */,
+				3DC33CE71D66EE4200FBE565 /* PhotoModel.m */,
 			);
 			name = "图片上传";
 			sourceTree = "<group>";
@@ -525,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D72D3161D61BCAC007D5193 /* Assets 4.xcassets in Resources */,
+				3DC33CE51D66E79700FBE565 /* SelectPhotoCollectionViewCell.xib in Resources */,
 				3D44F1C91D582A8800E3D4B7 /* LaunchScreen.storyboard in Resources */,
 				3D0B2F3D1D5B0F7C0038E892 /* myTableViewCell.xib in Resources */,
 				3D3446891D5ED0BB005654AC /* AboutWeiboViewController.xib in Resources */,
@@ -608,11 +627,13 @@
 				3DCDB5D11D6558330000E942 /* ShowLocationViewController.m in Sources */,
 				3DD4D9B41D5C7A7D00873792 /* AddFriendViewController.m in Sources */,
 				3D1380DB1D59D2E300C7B64C /* GlobalViewController.m in Sources */,
+				3DC33CDB1D66E3E000FBE565 /* SelectPhotoViewController.m in Sources */,
 				3D44F1C11D582A8800E3D4B7 /* ViewController.m in Sources */,
 				3DD4D9AE1D5C361100873792 /* NewfanViewController.m in Sources */,
 				3D1380E41D59DB7D00C7B64C /* MoviePlayViewController.m in Sources */,
 				3D1380B91D5970F600C7B64C /* GeneralViewController.m in Sources */,
 				3D1380C41D59761E00C7B64C /* FirstViewController.m in Sources */,
+				3DC33CE41D66E79700FBE565 /* SelectPhotoCollectionViewCell.m in Sources */,
 				3D1380D31D59B42B00C7B64C /* LoginViewController.m in Sources */,
 				3D1380BC1D5971BF00C7B64C /* NavigationViewController.m in Sources */,
 				3DD4D9A81D5C0B7200873792 /* PrivacyViewController.m in Sources */,
@@ -623,6 +644,7 @@
 				3D1380BF1D5971EC00C7B64C /* TabBarViewController.m in Sources */,
 				3D0B2F381D5AD2990038E892 /* UserDefault.m in Sources */,
 				3D1380D81D59C59400C7B64C /* SetViewController.m in Sources */,
+				3DC33CE81D66EE4200FBE565 /* PhotoModel.m in Sources */,
 				3DCDB5D41D659D410000E942 /* Location.m in Sources */,
 				3D44F1BB1D582A8800E3D4B7 /* main.m in Sources */,
 				3D3446881D5ED0BB005654AC /* AboutWeiboViewController.m in Sources */,
