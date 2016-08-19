@@ -294,6 +294,7 @@
 				3DC6D6A41D5B271C00FDDCAF /* 登录后设置 */,
 				3DD4D9B51D5C7C3C00873792 /* 意见反馈 */,
 				3DCDB5CE1D6557FA0000E942 /* ShowLocation */,
+				3DC33CD81D66E2FE00FBE565 /* 图片上传 */,
 				3DC6D6A91D5B319200FDDCAF /* 通知 */,
 				3DD4D9A51D5C0A1500873792 /* 隐私  */,
 				3D0B2F421D5B1CEB0038E892 /* UserModel */,
@@ -345,6 +346,13 @@
 				C7BB82B888C00E4131690439 /* Pods-ItemWeibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DC33CD81D66E2FE00FBE565 /* 图片上传 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "图片上传";
 			sourceTree = "<group>";
 		};
 		3DC6D6A41D5B271C00FDDCAF /* 登录后设置 */ = {

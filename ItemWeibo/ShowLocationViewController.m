@@ -11,14 +11,21 @@
 #import <CoreLocation/CoreLocation.h>
 #import <WeiboSDK.h>
 #import "Location.h"
+#import <MJRefresh.h>
 @interface ShowLocationViewController ()<CLLocationManagerDelegate,WBHttpRequestDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myTb;
     NSMutableArray *dataSource;
     CLLocationDegrees latitude;
     CLLocationDegrees longitude;
+    MJRefreshNormalHeader *refresha ;
     
 }
+/*
+ 这些方法调用的顺序:
+ 先调用72行代码,再进行61行,又因为该代理的方法,由系统决定调用的时间,即获得定位后才调用,所以先调用42行代码,里面的代理即时调用133行,又因为dataSource没值,所以无法调用95行,所以最后可能才调用155这个代码方法,这时dataSource才有值,所以应该调用reloadData这个方法,对UItableview的代理方法再进行调用
+ 
+ */
 
 @property(nonatomic,strong) CLLocationManager *locationManager;
 @end
@@ -31,7 +38,11 @@
     dataSource = [NSMutableArray array];
     [self showLocation];
     [self setUI];
-   
+    refresha = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(initData)];
+    [refresha setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [refresha setTitle:@"释放更新" forState:MJRefreshStatePulling];
+    [refresha  setTitle:@"下载中..." forState:MJRefreshStateRefreshing];
+    myTb.mj_header = refresha;
    
 }
 
@@ -44,12 +55,13 @@
     [self.view addSubview:myTb];
     myTb.delegate = self;
     myTb.dataSource = self;
-//    [MBProgressHUD showHUDAddedTo:myTb animated:YES];
+
+   [MBProgressHUD showHUDAddedTo:myTb animated:YES];
     
     UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, UISCREEN_WIDTH, 44)];
     search.placeholder = @"搜附近位置";
     myTb.tableHeaderView = search;
- 
+  
     
     
 }
@@ -59,7 +71,7 @@
         _locationManager = [CLLocationManager new];
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-        _locationManager.distanceFilter = kCLHeadingFilterNone;
+        _locationManager.distanceFilter = 1000;
         
     }
     return _locationManager;
@@ -69,7 +81,7 @@
     if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined||[CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
         [self.locationManager requestWhenInUseAuthorization];
     }
-    [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingLocation];//调用该方法开始定位
 }
 
 
@@ -80,6 +92,7 @@
     
     NSLog(@"latitude=%lf,longitude=%lf",latitude,longitude);
     [self initData];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)initData{
@@ -91,9 +104,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuse"];
         Location *locationDescribe = dataSource[indexPath.row];
         cell.textLabel.text = locationDescribe.locationName;
+        cell.detailTextLabel.text =[NSString stringWithFormat:@"%@人去过·%@",locationDescribe.numPerson,locationDescribe.detaiLocation];
+
         
     }
    
@@ -114,13 +129,16 @@
     NSArray *dd = dic[@"pois"];
     for (NSDictionary *dic in dd) {
         Location *locationDescribe = [Location new];
-    
         locationDescribe.locationName = dic[@"title"];
+        locationDescribe.numPerson = dic[@"district_info"][@"checkin_user_num"];
+        locationDescribe.detaiLocation = dic[@"poi_street_address"];
         [dataSource addObject:locationDescribe];
 
     }
-   
-  
+    [myTb.mj_header endRefreshing];
+    [MBProgressHUD hideHUDForView:myTb animated:YES];
+
+    [myTb reloadData];
    
    
 }

@@ -19,6 +19,7 @@
 @interface AppDelegate ()<WeiboSDKDelegate>
 {
     TabBarViewController *tabBar;
+    UINavigationController *addNa;
 }
 
 
@@ -39,7 +40,7 @@
     FirstViewController *first = [FirstViewController new];
     navigation = [[UINavigationController alloc]initWithRootViewController:first];
     add = [AddViewController new];
-    UINavigationController *addNa = [[UINavigationController alloc] initWithRootViewController:add];
+    addNa = [[UINavigationController alloc] initWithRootViewController:add];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"]) {
         LoginViewController *login = [LoginViewController new];
         weNa = [[UINavigationController alloc] initWithRootViewController:login];
@@ -86,7 +87,7 @@
     NSLog(@"收到请求");
     
 }
-
+//当收到微博响应调用此方法
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
    
     if ([response isMemberOfClass:[WBAuthorizeResponse class]]) {
@@ -105,7 +106,7 @@
            
             LoginViewController *login = [LoginViewController new];
             weNa = [[UINavigationController alloc] initWithRootViewController:login];
-            tabBar.viewControllers = @[navigation,add,weNa];
+            tabBar.viewControllers = @[navigation,addNa,weNa];
             tabBar.viewControllers[2].tabBarItem.title = @"我";
             tabBar.viewControllers[2].tabBarItem.image = [UIImage imageNamed:@"person"];
             tabBar.selectedIndex = 0;
