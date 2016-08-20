@@ -39,6 +39,7 @@
 		3DC6D6A71D5B274F00FDDCAF /* LoginSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6A61D5B274F00FDDCAF /* LoginSetViewController.m */; };
 		3DC6D6AC1D5B31E700FDDCAF /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */; };
 		3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */; };
+		3DCD24261D6836FC00135E06 /* EmojiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCD24251D6836FC00135E06 /* EmojiModel.m */; };
 		3DCDB5D11D6558330000E942 /* ShowLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDB5D01D6558330000E942 /* ShowLocationViewController.m */; };
 		3DCDB5D41D659D410000E942 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCDB5D31D659D410000E942 /* Location.m */; };
 		3DD4D9A81D5C0B7200873792 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD4D9A71D5C0B7200873792 /* PrivacyViewController.m */; };
@@ -129,6 +130,8 @@
 		3DC6D6AB1D5B31E700FDDCAF /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		3DC6D6AD1D5B52B300FDDCAF /* AboutWBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWBViewController.h; sourceTree = "<group>"; };
 		3DC6D6AE1D5B52B300FDDCAF /* AboutWBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWBViewController.m; sourceTree = "<group>"; };
+		3DCD24241D6836FC00135E06 /* EmojiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiModel.h; sourceTree = "<group>"; };
+		3DCD24251D6836FC00135E06 /* EmojiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiModel.m; sourceTree = "<group>"; };
 		3DCDB5CF1D6558330000E942 /* ShowLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowLocationViewController.h; sourceTree = "<group>"; };
 		3DCDB5D01D6558330000E942 /* ShowLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowLocationViewController.m; sourceTree = "<group>"; };
 		3DCDB5D21D659D410000E942 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 			children = (
 				3DD4D9B61D5C7C9900873792 /* OpinionFeedbackViewController.h */,
 				3DD4D9B71D5C7C9900873792 /* OpinionFeedbackViewController.m */,
+				3DCD24241D6836FC00135E06 /* EmojiModel.h */,
+				3DCD24251D6836FC00135E06 /* EmojiModel.m */,
 			);
 			name = "意见反馈";
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				3DD4D9AE1D5C361100873792 /* NewfanViewController.m in Sources */,
 				3D1380E41D59DB7D00C7B64C /* MoviePlayViewController.m in Sources */,
 				3D1380B91D5970F600C7B64C /* GeneralViewController.m in Sources */,
+				3DCD24261D6836FC00135E06 /* EmojiModel.m in Sources */,
 				3D1380C41D59761E00C7B64C /* FirstViewController.m in Sources */,
 				3DC33CE41D66E79700FBE565 /* SelectPhotoCollectionViewCell.m in Sources */,
 				3D1380D31D59B42B00C7B64C /* LoginViewController.m in Sources */,

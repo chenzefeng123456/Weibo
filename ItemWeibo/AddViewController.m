@@ -188,6 +188,8 @@
            OpinionFeedbackViewController  *sendWeibodd = [OpinionFeedbackViewController new];
             sendWeibodd.type = UITextSendWeiboType;
              [self.navigationController pushViewController:sendWeibodd animated:YES];//self.navigationController指装载当前视图的导航视图
+            
+         
         }
             break;
             

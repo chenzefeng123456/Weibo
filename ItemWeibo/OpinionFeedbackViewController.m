@@ -10,9 +10,16 @@
 #import "UserDefault.h"
 #import "ShowLocationViewController.h"
 #import "SelectPhotoViewController.h"
-@interface OpinionFeedbackViewController ()
+#import <WeiboSDK.h>
+#import "EmojiModel.h"
+#import <UIImageView+WebCache.h>
+@interface OpinionFeedbackViewController ()<WBHttpRequestDelegate>
 {
     UITextView *textView;
+    UIView *tooBarView;
+    CGRect rect ;
+    NSMutableArray *dataSource;
+    int index;
 }
 @end
 
@@ -20,9 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dataSource = [NSMutableArray array];
+     [self emojiData];
     [self setUI];
     [self setWeiboType];
     self.navigationController.navigationBar.hidden = NO;
+   
+    index = 0;
+  
 }
 
 - (void)setUI{
@@ -39,17 +51,18 @@
     UIBarButtonItem *sendItem = [[UIBarButtonItem alloc] initWithCustomView:sendButton];
     self.navigationItem.rightBarButtonItem = sendItem;
     
-    textView = [[UITextView alloc] initWithFrame:self.view.frame];
+    textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0, UISCREEN_WIDTH,  UISCREEN_HEIGHT - (rect.size.height + 84))];
+    NSLog(@"hwight = %f",rect.size.height + 84);
     
+    [textView becomeFirstResponder];
    
     textView.font = [UIFont systemFontOfSize:22];
     textView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:textView];
-    
-    UIView *tooBarView = [[UIView alloc] initWithFrame:CGRectMake(0, UISCREEN_HEIGHT-84, UISCREEN_WIDTH, 74)];
+    tooBarView = [[UIView alloc] initWithFrame:CGRectMake(0, UISCREEN_HEIGHT-84, UISCREEN_WIDTH, 84)];
     tooBarView.backgroundColor = CGCOLOR_RGB(227, 227, 227);
     [self.view addSubview:tooBarView];
-    UIToolbar *tooBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,30, UISCREEN_WIDTH, 44)];
+    UIToolbar *tooBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,40, UISCREEN_WIDTH, 44)];
     tooBar.backgroundColor = [UIColor whiteColor];
     [tooBarView addSubview:tooBar];
     UIBarButtonItem *picture = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"picture"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(pictureAction:)];
@@ -80,7 +93,39 @@
     open.layer.masksToBounds = YES;
     open.frame = CGRectMake(UISCREEN_WIDTH-80, 0, 70, 25);
     [tooBarView addSubview:open];
+    [UIView beginAnimations:@"animagtio" context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyBoard:) name:UIKeyboardWillShowNotification object:nil];
+    
+   
+}
 
+- (void)showKeyBoard:(NSNotification *)noti{
+    NSDictionary *dic = noti.userInfo;
+     rect = [dic[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSLog(@"hwight = %f",rect.size.height + 84);
+  
+    tooBarView.frame = CGRectMake(0, rect.origin.y-84, UISCREEN_WIDTH, 84);
+    [UIView commitAnimations];
+    [self showEmoji];
+}
+
+- (void)showEmoji{
+    UIView *emojiView = [[UIView alloc] initWithFrame:CGRectMake(0, rect.origin.y, UISCREEN_WIDTH, rect.size.height)];
+    NSLog(@"re = %f",rect.origin.y);
+    [self.view addSubview:emojiView];
+    float width = UISCREEN_WIDTH/10;
+    float gapWidth = (UISCREEN_WIDTH- width*7)/6;
+    for (int i = 0 ; i< 3; i++) {
+        for (int j = 0;j < 7 ; j++) {
+            index++;
+            UIButton *emojiButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            emojiButton.frame = CGRectMake(j *(width+gapWidth), i *50, width, 30);
+            [emojiView addSubview:emojiButton];
+            UIImageView *emojiImage = [[UIImageView alloc] initWithFrame:CGRectMake(j *(width+gapWidth), i *50, width, 30)];
+            [emojiImage sd_setImageWithURL:[NSURL URLWithString:dataSource[index-1]]];
+            [emojiView addSubview:emojiImage];
+        }
+    }
 
 }
 - (void)setWeiboType{
@@ -107,6 +152,31 @@
     
     
 }
+- (void)emojiData{
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"] url:@"https://api.weibo.com/2/emotions.json" httpMethod:@"GET" params:nil delegate:self withTag:@"2003"];
+}
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data{
+    NSArray *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    for (NSDictionary *dictrionary in dic) {
+        EmojiModel *e = [EmojiModel new];
+        e.url = dictrionary[@"url"];
+        if (dataSource.count <=21) {
+             [dataSource addObject:e];
+            
+        }else{
+            break;
+        }
+        
+       
+    }
+    
+    
+    //NSLog(@"dic = %@",dic);
+}
+
+- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response{
+    NSLog(@"res = %@",response);
+}
 
 - (void)showLocation:(UIButton *)sender{
     ShowLocationViewController *show = [ShowLocationViewController new];
@@ -116,7 +186,7 @@
     
 }
 - (void)emojiAction:(UIBarButtonItem *)sender{
-    
+    [textView resignFirstResponder];
 }
 - (void)topicAction:(UIBarButtonItem *)sender{
     
@@ -126,6 +196,9 @@
 }
 - (void)pictureAction:(UIBarButtonItem *)sender{
     SelectPhotoViewController *select = [SelectPhotoViewController new];
+    select.imagesHandle = ^(NSArray *images){
+        NSLog(@"%@",images);
+    };
     [self.navigationController pushViewController:select animated:YES];
     
 }

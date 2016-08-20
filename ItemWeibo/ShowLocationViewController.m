@@ -126,6 +126,7 @@
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data{
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:
                          nil];
+    NSLog(@"dic = %@",dic);
     NSArray *dd = dic[@"pois"];
     for (NSDictionary *dic in dd) {
         Location *locationDescribe = [Location new];

@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataSource = [NSMutableArray array];
+    self.images = [NSMutableArray array];
     [self setUI];
     [self getPhoto];
 }
@@ -48,6 +49,7 @@
     }
    
 }
+
 - (void)setUI{
     self.title = @"相机胶卷";
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -61,6 +63,13 @@
     [self.view addSubview:collection];
     [collection registerNib:[UINib nibWithNibName:@"SelectPhotoCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([SelectPhotoCollectionViewCell class])];
     
+    UIBarButtonItem *finish = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(finishAction)];
+    self.navigationItem.rightBarButtonItem = finish;
+}
+
+- (void)finishAction{
+    self.imagesHandle(self.images);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -85,18 +94,18 @@
     }
     cell.selectPhotoButton.selected = p.isSelect;
     cell.isSelect = ^(BOOL isSelect){
-        if (self.images.count >9 && isSelect) {
+        if (self.images.count >=9 && isSelect) {
             NSLog(@"九张");
         }else{
             p.isSelect = isSelect;
             if (p.isSelect) {
-                [self.images addObject:p.image];
+                [self.images addObject:p];
             }else{
-                [self.images removeObject:p.image];
+                [self.images removeObject:p];
             }
-
+            [collectionView reloadData];
         }
-              [collectionView reloadData];
+        
     };
  
      return cell;
