@@ -96,6 +96,7 @@
         self.user_id = authorize.userID;
         NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
         [user setObject:self.access_token forKey:@"access_token"];
+
         [user setObject:self.user_id forKey:@"user_id"];
         [user synchronize];
         

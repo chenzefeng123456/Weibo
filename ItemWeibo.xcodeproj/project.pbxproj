@@ -21,6 +21,10 @@
 		3D1380DB1D59D2E300C7B64C /* GlobalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1380DA1D59D2E300C7B64C /* GlobalViewController.m */; };
 		3D1380E11D59DAFB00C7B64C /* MoreLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1380E01D59DAFB00C7B64C /* MoreLanguageViewController.m */; };
 		3D1380E41D59DB7D00C7B64C /* MoviePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1380E31D59DB7D00C7B64C /* MoviePlayViewController.m */; };
+		3D304B351D6A94DD00EB5816 /* EmojiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D304B331D6A94DD00EB5816 /* EmojiCollectionViewCell.m */; };
+		3D304B361D6A94DD00EB5816 /* EmojiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D304B341D6A94DD00EB5816 /* EmojiCollectionViewCell.xib */; };
+		3D304B3A1D6B02BC00EB5816 /* AndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D304B391D6B02BC00EB5816 /* AndViewController.m */; };
+		3D304B3D1D6B153400EB5816 /* andModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D304B3C1D6B153400EB5816 /* andModel.m */; };
 		3D3446881D5ED0BB005654AC /* AboutWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3446861D5ED0BB005654AC /* AboutWeiboViewController.m */; };
 		3D3446891D5ED0BB005654AC /* AboutWeiboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3446871D5ED0BB005654AC /* AboutWeiboViewController.xib */; };
 		3D44F1BB1D582A8800E3D4B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F1BA1D582A8800E3D4B7 /* main.m */; };
@@ -95,6 +99,13 @@
 		3D1380E01D59DAFB00C7B64C /* MoreLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreLanguageViewController.m; sourceTree = "<group>"; };
 		3D1380E21D59DB7D00C7B64C /* MoviePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayViewController.h; sourceTree = "<group>"; };
 		3D1380E31D59DB7D00C7B64C /* MoviePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayViewController.m; sourceTree = "<group>"; };
+		3D304B321D6A94DD00EB5816 /* EmojiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiCollectionViewCell.h; sourceTree = "<group>"; };
+		3D304B331D6A94DD00EB5816 /* EmojiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiCollectionViewCell.m; sourceTree = "<group>"; };
+		3D304B341D6A94DD00EB5816 /* EmojiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmojiCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D304B381D6B02BC00EB5816 /* AndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AndViewController.h; sourceTree = "<group>"; };
+		3D304B391D6B02BC00EB5816 /* AndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AndViewController.m; sourceTree = "<group>"; };
+		3D304B3B1D6B153400EB5816 /* andModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = andModel.h; sourceTree = "<group>"; };
+		3D304B3C1D6B153400EB5816 /* andModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = andModel.m; sourceTree = "<group>"; };
 		3D3446851D5ED0BB005654AC /* AboutWeiboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWeiboViewController.h; sourceTree = "<group>"; };
 		3D3446861D5ED0BB005654AC /* AboutWeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWeiboViewController.m; sourceTree = "<group>"; };
 		3D3446871D5ED0BB005654AC /* AboutWeiboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWeiboViewController.xib; sourceTree = "<group>"; };
@@ -279,6 +290,17 @@
 			name = "设置";
 			sourceTree = "<group>";
 		};
+		3D304B371D6B025200EB5816 /* AndFriend */ = {
+			isa = PBXGroup;
+			children = (
+				3D304B381D6B02BC00EB5816 /* AndViewController.h */,
+				3D304B391D6B02BC00EB5816 /* AndViewController.m */,
+				3D304B3B1D6B153400EB5816 /* andModel.h */,
+				3D304B3C1D6B153400EB5816 /* andModel.m */,
+			);
+			name = AndFriend;
+			sourceTree = "<group>";
+		};
 		3D44F1AD1D582A8800E3D4B7 = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +331,7 @@
 				3DD4D9B51D5C7C3C00873792 /* 意见反馈 */,
 				3DCDB5CE1D6557FA0000E942 /* ShowLocation */,
 				3DC33CD81D66E2FE00FBE565 /* 图片上传 */,
+				3D304B371D6B025200EB5816 /* AndFriend */,
 				3DC6D6A91D5B319200FDDCAF /* 通知 */,
 				3DD4D9A51D5C0A1500873792 /* 隐私  */,
 				3D0B2F421D5B1CEB0038E892 /* UserModel */,
@@ -434,6 +457,9 @@
 			children = (
 				3DD4D9B61D5C7C9900873792 /* OpinionFeedbackViewController.h */,
 				3DD4D9B71D5C7C9900873792 /* OpinionFeedbackViewController.m */,
+				3D304B321D6A94DD00EB5816 /* EmojiCollectionViewCell.h */,
+				3D304B331D6A94DD00EB5816 /* EmojiCollectionViewCell.m */,
+				3D304B341D6A94DD00EB5816 /* EmojiCollectionViewCell.xib */,
 				3DCD24241D6836FC00135E06 /* EmojiModel.h */,
 				3DCD24251D6836FC00135E06 /* EmojiModel.m */,
 			);
@@ -552,6 +578,7 @@
 				3D44F1C91D582A8800E3D4B7 /* LaunchScreen.storyboard in Resources */,
 				3D0B2F3D1D5B0F7C0038E892 /* myTableViewCell.xib in Resources */,
 				3D3446891D5ED0BB005654AC /* AboutWeiboViewController.xib in Resources */,
+				3D304B361D6A94DD00EB5816 /* EmojiCollectionViewCell.xib in Resources */,
 				3D44F1C41D582A8800E3D4B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +655,7 @@
 				3D1380CA1D5978E900C7B64C /* WeViewController.m in Sources */,
 				3DC6D6A71D5B274F00FDDCAF /* LoginSetViewController.m in Sources */,
 				3D1380E11D59DAFB00C7B64C /* MoreLanguageViewController.m in Sources */,
+				3D304B351D6A94DD00EB5816 /* EmojiCollectionViewCell.m in Sources */,
 				3DC6D6AC1D5B31E700FDDCAF /* NotificationViewController.m in Sources */,
 				3DCDB5D11D6558330000E942 /* ShowLocationViewController.m in Sources */,
 				3DD4D9B41D5C7A7D00873792 /* AddFriendViewController.m in Sources */,
@@ -636,6 +664,7 @@
 				3D44F1C11D582A8800E3D4B7 /* ViewController.m in Sources */,
 				3DD4D9AE1D5C361100873792 /* NewfanViewController.m in Sources */,
 				3D1380E41D59DB7D00C7B64C /* MoviePlayViewController.m in Sources */,
+				3D304B3A1D6B02BC00EB5816 /* AndViewController.m in Sources */,
 				3D1380B91D5970F600C7B64C /* GeneralViewController.m in Sources */,
 				3DCD24261D6836FC00135E06 /* EmojiModel.m in Sources */,
 				3D1380C41D59761E00C7B64C /* FirstViewController.m in Sources */,
@@ -655,6 +684,7 @@
 				3D44F1BB1D582A8800E3D4B7 /* main.m in Sources */,
 				3D3446881D5ED0BB005654AC /* AboutWeiboViewController.m in Sources */,
 				3DC6D6AF1D5B52B300FDDCAF /* AboutWBViewController.m in Sources */,
+				3D304B3D1D6B153400EB5816 /* andModel.m in Sources */,
 				3D0B2F3C1D5B0F7C0038E892 /* myTableViewCell.m in Sources */,
 				3D1380CD1D597A1500C7B64C /* AddViewController.m in Sources */,
 			);
